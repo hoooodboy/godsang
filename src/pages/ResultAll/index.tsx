@@ -15,7 +15,7 @@ import G7 from "./ResultImgs/g7.png";
 import G8 from "./ResultImgs/g8.png";
 import LocalStorage from "@/src/local-storage";
 
-const Result = () => {
+const ResultAll = () => {
   const params = useParams();
   const navigate = useNavigate();
   const name = LocalStorage.get("name");
@@ -46,34 +46,43 @@ const Result = () => {
       <Background src={ResultBackground} />
       <ResultImgBlock>
         <ResultImgWrapper ref={divRef}>
-          {Number(params.id) === 0 && <Img src={G0} />}
-          {Number(params.id) === 1 && <Img src={G1} />}
-          {Number(params.id) === 2 && <Img src={G2} />}
-          {Number(params.id) === 3 && <Img src={G3} />}
-          {Number(params.id) === 4 && <Img src={G4} />}
-          {Number(params.id) === 5 && <Img src={G5} />}
-          {Number(params.id) === 6 && <Img src={G6} />}
-          {Number(params.id) === 7 && <Img src={G7} />}
-          {Number(params.id) === 8 && <Img src={G8} />}
-          <Name>
-            {name} 님은
-            {Number(params.id) === 0 && "프/로/갓/생/러!"}
-            {Number(params.id) === 1 && "성공에 미친 갓생러!"}
-            {Number(params.id) === 2 && "겸손한 갓생러!"}
-            {Number(params.id) === 3 && "모범적인 갓/반/인!"}
-            {Number(params.id) === 4 && "선택적 갓생러!"}
-            {Number(params.id) === 5 && "아직 갓생은 어려운 갓린이!"}
-            {Number(params.id) === 6 && "여유로운 걍/생/러!"}
-            {Number(params.id) === 7 && "갓/생/호/소/인!"}
-            {Number(params.id) === 8 && "자유로운 걍/린/이!"}
-          </Name>
+          <Img src={G0} />
+          <Name>자유로운 걍/린/이!</Name>
+        </ResultImgWrapper>
+        <ResultImgWrapper ref={divRef}>
+          <Img src={G1} />
+          <Name>갓/생/호/소/인!</Name>
+        </ResultImgWrapper>
+        <ResultImgWrapper ref={divRef}>
+          <Img src={G2} />
+          <Name>여유로운 걍/생/러!</Name>
+        </ResultImgWrapper>
+        <ResultImgWrapper ref={divRef}>
+          <Img src={G3} />
+          <Name>아직 갓생은 어려운 갓린이!</Name>
+        </ResultImgWrapper>
+        <ResultImgWrapper ref={divRef}>
+          <Img src={G4} />
+          <Name>선택적 갓생러!</Name>
+        </ResultImgWrapper>
+        <ResultImgWrapper ref={divRef}>
+          <Img src={G5} />
+          <Name>모범적인 갓/반/인!</Name>
+        </ResultImgWrapper>
+        <ResultImgWrapper ref={divRef}>
+          <Img src={G6} />
+          <Name>겸손한 갓생러!</Name>
+        </ResultImgWrapper>
+        <ResultImgWrapper ref={divRef}>
+          <Img src={G7} />
+          <Name>성공에 미친 갓생러!</Name>
+        </ResultImgWrapper>
+        <ResultImgWrapper ref={divRef}>
+          <Img src={G8} />
+          <Name>프/로/갓/생/러!</Name>
         </ResultImgWrapper>
       </ResultImgBlock>
       <ButtonWrapper>
-        <Button onClick={handleCaptureClick}>이미지 저장</Button>
-        <Button onClick={() => navigate("/result/all")}>
-          모든 결과 유형 보기
-        </Button>
         <Button
           onClick={() => {
             LocalStorage.set("name", "");
@@ -89,7 +98,6 @@ const Result = () => {
 
 const Container = styled.div`
   width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
   position: relative;
@@ -97,7 +105,6 @@ const Container = styled.div`
 
 const Background = styled.img`
   width: 100%;
-  height: 1148px;
   background-size: contain;
   position: absolute;
   top: 0;
@@ -106,10 +113,13 @@ const Background = styled.img`
 const ResultImgBlock = styled.div`
   width: calc(100% - 48px);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   position: absolute;
   top: 110px;
   margin: 0 auto;
+  gap: 40px;
+  padding-bottom: 110px;
 `;
 
 const ResultImgWrapper = styled.div`
@@ -135,27 +145,30 @@ const Name = styled.div`
 
 const ButtonWrapper = styled.div`
   width: 100%;
+  max-width: 390px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
   z-index: 100;
-  position: absolute;
-  top: 760px;
+  position: fixed;
+  bottom: 0;
 `;
 
 const Button = styled.div`
-  width: 240px;
-  height: 54px;
+  width: 100%;
+  height: 70px;
+
   display: flex;
   justify-content: center;
   align-items: center;
   background: #1a1a1a;
-  border-radius: 8px;
-  font-size: 16px;
+  border-radius: 32px 32px 0px 0px;
+  font-size: 18px;
   font-weight: 500;
   color: white;
   cursor: pointer;
 `;
 
-export default Result;
+export default ResultAll;

@@ -22,6 +22,10 @@ function AllRoutes() {
           element: <Pages.Questions />,
         },
         {
+          path: "/result/all",
+          element: <Pages.ResultAll />,
+        },
+        {
           path: "/result/:id",
           element: <Pages.Result />,
         },
