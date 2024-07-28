@@ -12,10 +12,13 @@ import G5 from "./ResultImgs/g5.png";
 import G6 from "./ResultImgs/g6.png";
 import G7 from "./ResultImgs/g7.png";
 import G8 from "./ResultImgs/g8.png";
+import LocalStorage from "@/src/local-storage";
 
 const Result = () => {
   const params = useParams();
   const navigate = useNavigate();
+
+  const name = LocalStorage.get("name");
 
   return (
     <Container>
@@ -30,13 +33,31 @@ const Result = () => {
         {Number(params.id) === 6 && <Img src={G6} />}
         {Number(params.id) === 7 && <Img src={G7} />}
         {Number(params.id) === 8 && <Img src={G8} />}
-        <Name>님은 선택적 갓생러!</Name>
+        <Name>
+          {name} 님은
+          {Number(params.id) === 0 && "프/로/갓/생/러!"}
+          {Number(params.id) === 1 && "성공에 미친 갓생러!"}
+          {Number(params.id) === 2 && "겸손한 갓생러!"}
+          {Number(params.id) === 3 && "모범적인 갓/반/인!"}
+          {Number(params.id) === 4 && "선택적 갓생러!"}
+          {Number(params.id) === 5 && "아직 갓생은 어려운 갓린이!"}
+          {Number(params.id) === 6 && "여유로운 걍/생/러!"}
+          {Number(params.id) === 7 && "갓/생/호/소/인!"}
+          {Number(params.id) === 8 && "자유로운 걍/린/이!"}
+        </Name>
       </ResultImgBlock>
       <ButtonWrapper>
         <Button onClick={() => navigate("/result/all")}>
           모든 결과 유형 보기
         </Button>
-        <Button onClick={() => navigate("/")}>테스트 다시 하기</Button>
+        <Button
+          onClick={() => {
+            LocalStorage.set("name", "");
+            navigate("/");
+          }}
+        >
+          테스트 다시 하기
+        </Button>
       </ButtonWrapper>
     </Container>
   );

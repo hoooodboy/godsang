@@ -5,12 +5,14 @@ import { useNavigate } from "react-router-dom";
 import { getCount } from "@/src/api/counter";
 import { toast } from "react-toastify";
 
+import useCopyCurrentUrl from "@/src/utils/useCopyCurrentUrl";
+import LocalStorage from "@/src/local-storage";
+
 import MainBackground from "@/src/assets/main-background.png";
 import IcInsta from "@/src/assets/insta.svg?react";
 import IcKakao from "@/src/assets/kakao.svg?react";
 import IcX from "@/src/assets/x.svg?react";
 import IcLink from "@/src/assets/link.svg?react";
-import useCopyCurrentUrl from "@/src/utils/useCopyCurrentUrl";
 
 const Home = () => {
   const [count, setCount] = useState();
@@ -31,6 +33,7 @@ const Home = () => {
     if (name === "") {
       return toast("이름을 입력해주세요");
     }
+    LocalStorage.set("name", name);
     navigate("/questions");
   };
 

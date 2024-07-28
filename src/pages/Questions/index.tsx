@@ -188,7 +188,7 @@ const QuestionBlock = styled.div`
   align-items: center;
 
   position: absolute;
-  top: 34.5%;
+  top: 465px;
 `;
 
 const ProgressBar = styled.div`
