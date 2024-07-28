@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from "react";
-import MainBackground from "@/src/assets/main-background.png";
 import styled from "styled-components";
-import { getCount } from "@/src/api/counter";
-import { Toast } from "react-toastify/dist/components";
-import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+
+import { getCount } from "@/src/api/counter";
+import { toast } from "react-toastify";
+
+import MainBackground from "@/src/assets/main-background.png";
+import IcInsta from "@/src/assets/insta.svg?react";
+import IcKakao from "@/src/assets/kakao.svg?react";
+import IcX from "@/src/assets/x.svg?react";
+import IcLink from "@/src/assets/link.svg?react";
+import useCopyCurrentUrl from "@/src/utils/useCopyCurrentUrl";
 
 const Home = () => {
   const [count, setCount] = useState();
   const [name, setName] = useState("");
   const navigate = useNavigate();
+  const { onShare } = useCopyCurrentUrl();
 
   useEffect(() => {
     getCount().then((res: any) => {
@@ -28,7 +35,7 @@ const Home = () => {
   };
 
   return (
-    <>
+    <Container>
       <Background src={MainBackground} />
       <Block>
         <Name
@@ -44,16 +51,35 @@ const Home = () => {
         <Line />
         <ShareBlock>
           공유하기
-          <IconWrapper></IconWrapper>
+          <IconWrapper>
+            <Icon onClick={onShare}>
+              <IcKakao />
+            </Icon>
+            <Icon onClick={onShare}>
+              <IcInsta />
+            </Icon>
+            <Icon onClick={onShare}>
+              <IcX />
+            </Icon>
+            <Icon onClick={onShare}>
+              <IcLink />
+            </Icon>
+          </IconWrapper>
         </ShareBlock>
       </Block>
-    </>
+    </Container>
   );
 };
 
+const Container = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
+`;
+
 const Background = styled.img`
   width: 100%;
-  height: 100vh;
+  background-size: contain;
 `;
 
 const Block = styled.div`
@@ -62,7 +88,7 @@ const Block = styled.div`
   flex-direction: column;
   align-items: center;
   position: absolute;
-  bottom: 10%;
+  bottom: 0%;
 `;
 
 const Name = styled.input`
@@ -114,11 +140,29 @@ const Line = styled.div`
 const ShareBlock = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 16px;
   font-size: 18px;
   font-weight: 500;
 `;
 
-const IconWrapper = styled.div``;
+const IconWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+`;
+
+const Icon = styled.div`
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 100%;
+  background: #fff;
+  cursor: pointer;
+`;
 
 export default Home;

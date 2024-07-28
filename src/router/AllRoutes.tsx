@@ -18,6 +18,14 @@ function AllRoutes() {
           element: <Pages.Home />,
         },
         {
+          path: "/questions",
+          element: <Pages.Questions />,
+        },
+        {
+          path: "/result/:id",
+          element: <Pages.Result />,
+        },
+        {
           path: "/*",
           element: <Pages.Home />,
         },

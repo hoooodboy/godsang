@@ -15,7 +15,7 @@ const useCopyCurrentUrl = () => {
   const onShare = () => {
     if (navigator.share) {
       navigator.share({
-        title: "fandly",
+        title: "갓생력 테스트",
         url: window.location.href,
       });
     } else {
