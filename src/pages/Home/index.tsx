@@ -41,7 +41,7 @@ const Home = () => {
         <Participants>
           참여자 수<Count>{Number(count).toLocaleString()}</Count>
         </Participants>
-        <Line></Line>
+        <Line />
         <ShareBlock>
           공유하기
           <IconWrapper></IconWrapper>

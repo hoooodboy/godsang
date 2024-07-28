@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   * {
-    font-family: "SUIT", serif !important;
+    font-family: "Pretendard", serif !important;
   }
 
   html, body, #root {
