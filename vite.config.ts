@@ -14,10 +14,10 @@ export default defineConfig(({ command, mode }) => {
     resolve: {
       alias: [{ find: "@", replacement: path.resolve(__dirname, "") }],
     },
-    server: {
-      proxy: {
-        "/api": env.VITE_APP_API_HOST,
-      },
-    },
+    // server: {
+    //   proxy: {
+    //     "/api": env.VITE_APP_API_HOST,
+    //   },
+    // },
   };
 });
