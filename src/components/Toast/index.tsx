@@ -61,7 +61,7 @@ export default function Toast() {
 }
 
 export const Container = styled(ToastContainer)`
-  max-width: 480px;
+  max-width: 390px;
   width: 100%;
   padding: 0;
   .Toastify__toast {

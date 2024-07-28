@@ -171,6 +171,7 @@ const Container = styled.div`
   width: 100%;
   height: 100vh;
   position: relative;
+  min-height: 800px;
 `;
 
 const Img = styled.img`
@@ -187,7 +188,7 @@ const QuestionBlock = styled.div`
   align-items: center;
 
   position: absolute;
-  top: 43%;
+  top: 34.5%;
 `;
 
 const ProgressBar = styled.div`
@@ -195,7 +196,7 @@ const ProgressBar = styled.div`
   height: 4px;
   background: #e6e6e6;
   position: absolute;
-  top: 4.6%;
+  top: 50px;
 `;
 
 const Progress = styled.div<{ progress?: number }>`

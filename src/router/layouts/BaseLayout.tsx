@@ -27,7 +27,7 @@ function BaseLayout() {
 }
 
 const Content = styled.div`
-  max-width: 480px;
+  max-width: 390px;
   margin: 0 auto;
   min-height: 100vh; /* fallback */
   min-height: calc(var(--vh) * 100);

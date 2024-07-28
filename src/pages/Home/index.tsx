@@ -75,6 +75,7 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
+  min-height: 1200px;
 `;
 
 const Background = styled.img`
@@ -88,7 +89,7 @@ const Block = styled.div`
   flex-direction: column;
   align-items: center;
   position: absolute;
-  bottom: 0%;
+  top: 45%;
 `;
 
 const Name = styled.input`
