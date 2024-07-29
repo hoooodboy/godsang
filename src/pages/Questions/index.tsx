@@ -69,7 +69,7 @@ const QUESTION_LIST = [
     img: Q5,
     options: [
       {
-        option: "이른 아침에나 일어나\n깨어있는 시간을 늘리려고 하는 편",
+        option: "이른 아침에 일어나\n깨어있는 시간을 늘리려고 하는 편",
         value: "G",
       },
       {

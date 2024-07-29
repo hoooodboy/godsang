@@ -58,15 +58,15 @@ const Result = () => {
           {Number(params.id) === 8 && <Img src={G8} />}
           <Name>
             {name} 님은
-            {Number(params.id) === 0 && "프/로/갓/생/러!"}
-            {Number(params.id) === 1 && "성공에 미친 갓생러!"}
-            {Number(params.id) === 2 && "겸손한 갓생러!"}
-            {Number(params.id) === 3 && "모범적인 갓/반/인!"}
+            {Number(params.id) === 0 && "자유로운 걍/린/이!"}
+            {Number(params.id) === 1 && "갓/생/호/소/인!"}
+            {Number(params.id) === 2 && "여유로운 걍/생/러!"}
+            {Number(params.id) === 3 && "아직 갓생은 어려운 갓린이!"}
             {Number(params.id) === 4 && "선택적 갓생러!"}
-            {Number(params.id) === 5 && "아직 갓생은 어려운 갓린이!"}
-            {Number(params.id) === 6 && "여유로운 걍/생/러!"}
-            {Number(params.id) === 7 && "갓/생/호/소/인!"}
-            {Number(params.id) === 8 && "자유로운 걍/린/이!"}
+            {Number(params.id) === 5 && "모범적인 갓/반/인!"}
+            {Number(params.id) === 6 && "겸손한 갓생러!"}
+            {Number(params.id) === 7 && "성공에 미친 갓생러!"}
+            {Number(params.id) === 8 && "프/로/갓/생/러!"}
           </Name>
         </ResultImgWrapper>
       </ResultImgBlock>
