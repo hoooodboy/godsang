@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 import ResultBackground from "./ResultImgs/result-background.png";
+import ResultAllBackground from "./ResultImgs/result-all-background.png";
 import G0 from "./ResultImgs/g0.png";
 import G1 from "./ResultImgs/g1.png";
 import G2 from "./ResultImgs/g2.png";
@@ -19,54 +20,38 @@ const ResultAll = () => {
 
   return (
     <Container>
-      <Background src={ResultBackground} />
+      <Background src={ResultAllBackground} />
       <ResultImgBlock>
         <ResultImgWrapper>
           <Img src={G0} />
-          <Name>자유로운 걍/린/이!</Name>
         </ResultImgWrapper>
         <ResultImgWrapper>
           <Img src={G1} />
-          <Name>갓/생/호/소/인!</Name>
         </ResultImgWrapper>
         <ResultImgWrapper>
           <Img src={G2} />
-          <Name>여유로운 걍/생/러!</Name>
         </ResultImgWrapper>
         <ResultImgWrapper>
           <Img src={G3} />
-          <Name>아직 갓생은 어려운 갓린이!</Name>
         </ResultImgWrapper>
         <ResultImgWrapper>
           <Img src={G4} />
-          <Name>선택적 갓생러!</Name>
         </ResultImgWrapper>
         <ResultImgWrapper>
           <Img src={G5} />
-          <Name>모범적인 갓/반/인!</Name>
         </ResultImgWrapper>
         <ResultImgWrapper>
           <Img src={G6} />
-          <Name>겸손한 갓생러!</Name>
         </ResultImgWrapper>
         <ResultImgWrapper>
           <Img src={G7} />
-          <Name>성공에 미친 갓생러!</Name>
         </ResultImgWrapper>
         <ResultImgWrapper>
           <Img src={G8} />
-          <Name>프/로/갓/생/러!</Name>
         </ResultImgWrapper>
       </ResultImgBlock>
       <ButtonWrapper>
-        <Button
-          onClick={() => {
-            LocalStorage.set("name", "");
-            navigate("/");
-          }}
-        >
-          테스트 다시 하기
-        </Button>
+        <Button onClick={() => navigate(-1)}>내 결과로 돌아가기</Button>
       </ButtonWrapper>
     </Container>
   );

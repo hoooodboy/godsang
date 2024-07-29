@@ -71,7 +71,10 @@ const Result = () => {
         </ResultImgWrapper>
       </ResultImgBlock>
       <ButtonWrapper>
-        {/* <Button>이미지 저장</Button> */}
+        <Notice>
+          사진을 눌러 저장해주세요
+          <br /> 인스타그램 스토리에 올리기 좋아요 &gt;&lt;
+        </Notice>
         <Button onClick={() => navigate("/result/all")}>
           모든 결과 유형 보기
         </Button>
@@ -142,7 +145,7 @@ const ButtonWrapper = styled.div`
   gap: 12px;
   z-index: 100;
   position: absolute;
-  top: 760px;
+  top: 730px;
 `;
 
 const Button = styled.div`
@@ -157,6 +160,12 @@ const Button = styled.div`
   font-weight: 500;
   color: white;
   cursor: pointer;
+`;
+
+const Notice = styled.div`
+  font-size: 10px;
+  text-align: center;
+  margin-bottom: 24px;
 `;
 
 export default Result;
