@@ -10,9 +10,9 @@ const getCount = async () => {
   }
 };
 
-const postCount = async (data) => {
+const postCount = async () => {
   try {
-    const response = await api.post(`/increment`, data);
+    const response = await api.post(`/increment`);
     return response.data;
   } catch (error) {
     console.error("Failed to increment counter:", error);

@@ -11,6 +11,7 @@ import Q5 from "./QuestionImgs/q5.png";
 import Q6 from "./QuestionImgs/q6.png";
 import Q7 from "./QuestionImgs/q7.png";
 import Q8 from "./QuestionImgs/q8.png";
+import { postCount } from "@/src/api/counter";
 
 const QUESTION_LIST = [
   {
@@ -135,6 +136,7 @@ const Questions = () => {
     if (currentQuestionIndex < QUESTION_LIST.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
+      postCount();
       handleSubmit([...responses, value]);
     }
   };
