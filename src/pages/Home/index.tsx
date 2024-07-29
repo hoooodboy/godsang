@@ -49,7 +49,8 @@ const Home = () => {
         <StartButton onClick={onNavigate}>시작하기</StartButton>
 
         <Participants>
-          참여자 수<Count>{Number(count).toLocaleString()}</Count>
+          참여자 수
+          <Count>{!!count ? Number(count).toLocaleString() : "-"}</Count>
         </Participants>
         <Line />
         <ShareBlock>
