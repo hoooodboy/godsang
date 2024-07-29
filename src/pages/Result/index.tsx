@@ -1,7 +1,9 @@
 import React, { useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
-import { toPng } from "html-to-image";
+
+import LocalStorage from "@/src/local-storage";
+import html2canvas from "html2canvas";
 
 import ResultBackground from "./ResultImgs/result-background.png";
 import G0 from "./ResultImgs/g0.png";
@@ -13,13 +15,11 @@ import G5 from "./ResultImgs/g5.png";
 import G6 from "./ResultImgs/g6.png";
 import G7 from "./ResultImgs/g7.png";
 import G8 from "./ResultImgs/g8.png";
-import LocalStorage from "@/src/local-storage";
 
 const Result = () => {
   const params = useParams();
   const navigate = useNavigate();
   const name = LocalStorage.get("name");
-
   const divRef = useRef(null);
 
   const handleCaptureClick = () => {
@@ -27,8 +27,9 @@ const Result = () => {
       return;
     }
 
-    toPng(divRef.current)
-      .then((dataUrl) => {
+    html2canvas(divRef.current)
+      .then((canvas) => {
+        const dataUrl = canvas.toDataURL("image/png");
         const link = document.createElement("a");
         link.href = dataUrl;
         link.download = "갓생력 테스트.png";
@@ -44,7 +45,7 @@ const Result = () => {
   return (
     <Container>
       <Background src={ResultBackground} />
-      <ResultImgBlock>
+      <ResultImgBlock onClick={handleCaptureClick}>
         <ResultImgWrapper ref={divRef}>
           {Number(params.id) === 0 && <Img src={G0} />}
           {Number(params.id) === 1 && <Img src={G1} />}
@@ -70,7 +71,7 @@ const Result = () => {
         </ResultImgWrapper>
       </ResultImgBlock>
       <ButtonWrapper>
-        <Button onClick={handleCaptureClick}>이미지 저장</Button>
+        {/* <Button>이미지 저장</Button> */}
         <Button onClick={() => navigate("/result/all")}>
           모든 결과 유형 보기
         </Button>

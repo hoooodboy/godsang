@@ -1,7 +1,6 @@
-import React, { useRef } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { toPng } from "html-to-image";
 
 import ResultBackground from "./ResultImgs/result-background.png";
 import G0 from "./ResultImgs/g0.png";
@@ -16,68 +15,45 @@ import G8 from "./ResultImgs/g8.png";
 import LocalStorage from "@/src/local-storage";
 
 const ResultAll = () => {
-  const params = useParams();
   const navigate = useNavigate();
-  const name = LocalStorage.get("name");
-
-  const divRef = useRef(null);
-
-  const handleCaptureClick = () => {
-    if (divRef.current === null) {
-      return;
-    }
-
-    toPng(divRef.current)
-      .then((dataUrl) => {
-        const link = document.createElement("a");
-        link.href = dataUrl;
-        link.download = "갓생력 테스트.png";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      })
-      .catch((err) => {
-        console.error("Failed to capture image:", err);
-      });
-  };
 
   return (
     <Container>
       <Background src={ResultBackground} />
       <ResultImgBlock>
-        <ResultImgWrapper ref={divRef}>
+        <ResultImgWrapper>
           <Img src={G0} />
           <Name>자유로운 걍/린/이!</Name>
         </ResultImgWrapper>
-        <ResultImgWrapper ref={divRef}>
+        <ResultImgWrapper>
           <Img src={G1} />
           <Name>갓/생/호/소/인!</Name>
         </ResultImgWrapper>
-        <ResultImgWrapper ref={divRef}>
+        <ResultImgWrapper>
           <Img src={G2} />
           <Name>여유로운 걍/생/러!</Name>
         </ResultImgWrapper>
-        <ResultImgWrapper ref={divRef}>
+        <ResultImgWrapper>
           <Img src={G3} />
           <Name>아직 갓생은 어려운 갓린이!</Name>
         </ResultImgWrapper>
-        <ResultImgWrapper ref={divRef}>
+        <ResultImgWrapper>
           <Img src={G4} />
           <Name>선택적 갓생러!</Name>
         </ResultImgWrapper>
-        <ResultImgWrapper ref={divRef}>
+        <ResultImgWrapper>
           <Img src={G5} />
           <Name>모범적인 갓/반/인!</Name>
         </ResultImgWrapper>
-        <ResultImgWrapper ref={divRef}>
+        <ResultImgWrapper>
           <Img src={G6} />
           <Name>겸손한 갓생러!</Name>
         </ResultImgWrapper>
-        <ResultImgWrapper ref={divRef}>
+        <ResultImgWrapper>
           <Img src={G7} />
           <Name>성공에 미친 갓생러!</Name>
         </ResultImgWrapper>
-        <ResultImgWrapper ref={divRef}>
+        <ResultImgWrapper>
           <Img src={G8} />
           <Name>프/로/갓/생/러!</Name>
         </ResultImgWrapper>
